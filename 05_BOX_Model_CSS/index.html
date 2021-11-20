@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Box_model</title>
+    <style>
+      p {
+        border-style: solid;
+        border-color: royalblue;
+        border-width: 4px;
+        border: 1px blue solid;
+        border-radius: 30%;
+        margin-bottom: 50px;
+        padding-top: 10px;
+        padding-bottom: 20px;
+        width: 300px;
+        height: 100px;
+        background-color: coral;
+        /* Display block /zazuimaju celu sirinu stranice i za njih se menja w i h / */
+        display: block;
+      }
+
+      span {
+        border: 2px solid black;
+        margin-right: 10px;
+        padding: 5px;
+        width: 400px;
+        height: 250px;
+        display: inline-block;
+        /* Display inline tacno onoliko koliko treba da se prikaze sadrzaj, ne moze da se smenja w i h/ */
+        display: inline;
+      }
+    </style>
+  </head>
+  <body>
+    <p>Tekst prvog paragrafa</p>
+    <p>Tekst drugog paragrafa</p>
+    <span id="s1">Tekst prvog spana</span>
+    <span id="s2">Tekst drugog spana</span>
+  </body>
+</html>

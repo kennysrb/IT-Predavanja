@@ -1,0 +1,70 @@
+.crveni_paragraf{
+    color: red;
+}
+
+.desno_poravnanje{
+    text-align: right;
+}
+
+/* vise elemenata sa istim svojstvom */
+
+h3, h4{
+    color: orange;
+}
+
+.drugi, #treci{
+    background-color: yellow;
+}
+
+
+/* Prioritet: selector < klasa < id */
+
+
+li{
+    color: green;
+}
+
+.kurs{
+    color: blue;
+}
+
+#js{
+    color: chocolate;
+}
+
+/* Selektovati sve paragrafe unutar div elementa */
+
+div p {
+    text-decoration: underline;
+}
+
+
+div .podparagraf{
+    text-decoration-color: red;
+}
+
+div #tekst_paragrafa{
+    font-weight: bold;
+}
+
+
+/* > selektuje samo direktne potomke */
+
+#divizija>p{
+    font-family: 'Courier New', Courier, monospace;
+}
+
+/* Trecii element */
+
+ol li:nth-child(3){
+    color: black;
+}
+
+/* Svaki treci */
+ol li:nth-child(3n){
+    font-style: italic;
+}
+
+ol li:nth-child(even){
+    color: red;
+}

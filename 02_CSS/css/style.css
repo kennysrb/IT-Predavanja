@@ -1,0 +1,21 @@
+.externi{
+    color: green;
+}
+
+
+p {
+    color: indigo;
+}
+
+#prvi{
+    text-align: end;
+}
+
+.zuta_pozadina{
+    background-color: yellow;
+    font-weight: bold;
+}
+
+body{
+    font-family: 'Courier New', Courier, monospace;
+}

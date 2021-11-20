@@ -1,0 +1,63 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+}
+a{
+    text-decoration: none;
+    color: red;
+}
+
+a:hover{
+    color: green;
+}
+
+body{
+    background-color: #f4f4f4;
+}
+
+h2{
+    text-align: center;
+    color: #333;
+    margin: 3rem;
+    text-transform: uppercase;
+}
+
+.slika{
+    margin-bottom: 3rem;
+}
+
+.slika a{
+    display: flex;   
+}
+
+img{
+    width: 60%;
+    margin: auto;
+    align-items: center;
+    border: double 5px red;
+}
+
+.dark{
+    background-color: #888;
+}
+
+h3{
+    text-align: start;
+    padding-bottom: 0.8rem;
+    padding-top: 1.5rem;
+}
+
+.container{
+    width: 90%;
+    margin: auto;
+}
+
+.flex{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.flex p {
+
+}
+
