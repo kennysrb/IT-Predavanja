@@ -1,0 +1,101 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+header {
+  background-image: url(https://thumbs.dreamstime.com/b/header-laptop-scattered-stationery-yellow-background-online-school-distance-education-concept-211955492.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 200px;
+  z-index: 100;
+}
+
+header p {
+    color: white;
+    font-size: 4em;
+    font-weight: bold;
+    position: absolute;
+    width: 60%;
+
+    /* TOP LEFT */
+    /* top: 0;
+    left: 0; */
+
+    /* TOP RIGHT */
+    /* top: 0;
+    right: 0; */
+
+    /* BOTTOM LEFT */
+    /* bottom: 0;
+    left: 0; */
+    
+    /* BOTTOM RIGHT */
+    /* bottom: 0;
+    right: 0; */
+
+    /* CENTRIRANO */
+
+    /* left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    width: 60%;
+    height:40%; */
+
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
+
+section {
+  position: relative;
+  top: 200px;
+  left: 50px;
+  background-color: brown;
+  margin: 10px;
+  width: 400px;
+  height: 250px;
+}
+
+section img {
+  position: absolute;
+  top: 50px;
+  left: 20px;
+  width: 150px;
+  height: 150px;
+  background-color: white;
+}
+
+section p {
+  position: absolute;
+  top: 50px;
+  right: 20px;
+}
+
+section a {
+  text-transform: uppercase;
+  position: absolute;
+  bottom: 50px;
+  right: 20px;
+  z-index: 2;
+}
+
+
+.dva{
+  background-color: green;
+  top: 80px;
+  left: 300px;
+  z-index: 3;
+}

@@ -1,0 +1,40 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    outline: 19px solid red;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+  }
+
+p {
+    border-style: solid;
+    border-color: royalblue;
+    border-width: 4px;
+    border: 1px blue solid;
+    border-radius: 30%;
+    margin-bottom: 50px;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    width: 300px;
+    height: 100px;
+    background-color: coral;
+    /* Display block /zazuimaju celu sirinu stranice i za njih se menja w i h / */
+    display: block;
+  }
+
+  span {
+    box-sizing: border-box;
+    border: 2px solid black;
+    padding: 5px;
+    width: 50%;
+    height: 250px;
+    display: inline-block;
+    margin: 0;
+    /* Display inline tacno onoliko koliko treba da se prikaze sadrzaj, ne moze da se smenja w i h/ */
+    /* display: inline; */
+  }
+
+  

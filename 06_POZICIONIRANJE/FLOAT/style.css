@@ -1,0 +1,56 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+}
+
+/* #parent{
+    background-color: brown;
+    position: relative;
+    height: 18.4px;
+}
+
+#parent p{
+    background-color: burlywood;
+    width: 25%;
+    position: absolute;
+}
+
+#parent p:nth-child(1){
+    left: 0;
+}
+
+#parent p:nth-child(2){
+    left: 25%;
+}
+
+#parent p:nth-child(3){
+    left: 50%;
+} */
+
+/* Kada se koristi float: 
+1. Deca koja se redjaju: 
+float (left ili right) 
+
+2. Roditelj unutar kojeg se redjaju: 
+overflow: hidden*/
+
+
+#parent{
+    background-color: brown;
+    width: 100%;
+    overflow: hidden;
+}
+
+#parent p{
+    background-color: burlywood;
+    float: right;
+    width: 25%;
+}
+
+#parent p:first-child {
+    float: left;
+}
+
+
+
+
