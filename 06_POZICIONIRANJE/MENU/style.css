@@ -1,0 +1,116 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    height: 100000px;
+}
+
+
+/* Horizontal MENU */
+
+#rest{
+    position: relative;
+    top: 150px;
+}
+
+nav{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+}
+
+nav ul{
+    list-style: none;
+    overflow: hidden;
+    
+}
+
+nav ul li{
+    float: left;
+    background-color: #333;
+    border-right: 2px solid #f4f4f4;
+    width: calc(100%/(4));
+    text-align: center;
+}
+
+nav a{
+    text-decoration: none;
+    color: #f4f4f4;
+    display: block;
+    padding: 10px 0;
+}
+
+nav a:hover{
+    background-color: maroon;
+}
+
+/* Vertical menu */
+
+footer{
+    /* position: fixed;
+    bottom: 0;
+    width: 100%; */
+
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    /* left: 0; */
+    /* height: 100%; */
+    background-color: lightgray;
+    width: 19%;
+}
+
+footer ul {
+    list-style-type: none;
+    margin-top: 41px;
+}
+
+footer ul li{
+    /* width: 25%; */
+    background-color: lightgray;
+}
+
+footer ul li a{
+    text-decoration: none;
+    color: #333;
+    display: block;
+    padding: 10px 0 10px 5px;
+}
+
+footer ul li a:hover{
+    background-color: rgb(136, 132, 132);
+    color: rgb(179, 68, 68);
+    font-weight: bold;
+}
+
+
+
+.submenu{
+    display: none;
+}
+
+
+.dropdown:hover .submenu{
+    display: block;
+}
+
+
+.slideleft:hover .submenu {
+    display: block;
+}
+
+.white{
+    background-color: white;
+}
+
+.white ul li a{
+    background-color: white;
+}
+
+.slideleft:hover .white li a{
+    background-color: #333;
+} 
