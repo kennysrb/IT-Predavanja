@@ -3,6 +3,8 @@
   margin: 0;
 }
 
+
+
 header {
   background-color: mediumspringgreen;
 }
@@ -22,6 +24,9 @@ aside {
 footer {
   background-color: olive;
 }
+
+
+/* COPY ODAVDE DO KRAJA */
 
 .row {
   width: 100%;
