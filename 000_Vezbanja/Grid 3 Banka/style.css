@@ -1,0 +1,205 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #ebdbb2;
+  margin-top: 200px;
+}
+
+ul {
+  list-style: none;
+}
+
+header,
+footer {
+  color: #fff;
+}
+
+.margin {
+  padding-top: 10px;
+}
+
+/* header ul{
+    margin-left: 10px;
+    width: 94%;
+    color: #fff;
+} */
+
+/* header ul li{
+    background-color: #55534D;
+    padding: 13px; 
+    padding-left: 20px;
+    margin-bottom: 10px;
+    font-weight: bold;
+} */
+
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+}
+
+header ul {
+  list-style: none;
+  overflow: hidden;
+}
+
+header ul li {
+  float: left;
+  background-color: #333;
+  width: calc(100% / (9));
+  text-align: center;
+}
+
+span {
+  display: block;
+  height: 38.4px;
+  border: none;
+}
+
+header a {
+  text-decoration: none;
+  color: #f4f4f4;
+  display: block;
+  padding: 10px 0;
+}
+
+header a:hover {
+  background-color: maroon;
+}
+
+.submenu {
+  display: none;
+}
+
+.dropdown:hover .submenu {
+  display: block;
+}
+
+section p {
+  width: 90%;
+}
+
+aside {
+  text-align: center;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  text-align: center;
+  padding: 15px;
+  width: 100%;
+  background-color: #55534d;
+}
+
+.row {
+  width: 100%;
+  overflow: hidden;
+}
+
+[class*="col-"] {
+  float: left;
+}
+
+/* MOBILE */
+
+@media only screen and (max-width: 600px) {
+  [class*="col-"] {
+    width: 100%;
+  }
+
+  section {
+    padding: 10px;
+  }
+}
+
+/* TABLET */
+
+@media only screen and (min-width: 601px) and (max-width: 999px) {
+  .col-t-1 {
+    width: 8.33%;
+  }
+  .col-t-2 {
+    width: 16.66%;
+  }
+  .col-t-3 {
+    width: 25%;
+  }
+  .col-t-4 {
+    width: 33.33%;
+  }
+  .col-t-5 {
+    width: 41.66%;
+  }
+  .col-t-6 {
+    width: 50%;
+  }
+  .col-t-7 {
+    width: 58.33%;
+  }
+  .col-t-8 {
+    width: 66.66%;
+  }
+  .col-t-9 {
+    width: 75%;
+  }
+  .col-t-10 {
+    width: 83.33;
+  }
+  .col-t-11 {
+    width: 91.66%;
+  }
+  .col-t-12 {
+    width: 100%;
+  }
+  section {
+    padding: 10px;
+  }
+}
+
+/* DESKTOP */
+
+@media only screen and (min-width: 1000px) {
+  .col-1 {
+    width: 8.33%;
+  }
+  .col-2 {
+    width: 16.66%;
+  }
+  .col-3 {
+    width: 25%;
+  }
+  .col-4 {
+    width: 33.33%;
+  }
+  .col-5 {
+    width: 41.66%;
+  }
+  .col-6 {
+    width: 50%;
+  }
+  .col-7 {
+    width: 58.33%;
+  }
+  .col-8 {
+    width: 66.66%;
+  }
+  .col-9 {
+    width: 75%;
+  }
+  .col-10 {
+    width: 83.33;
+  }
+  .col-11 {
+    width: 91.66%;
+  }
+  .col-12 {
+    width: 100%;
+  }
+}
