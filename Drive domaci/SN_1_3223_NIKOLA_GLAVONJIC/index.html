@@ -1,14 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-    <script src="if.js"></script>
+    <style>
+      .red {
+        color: red;
+      }
+
+      span {
+        display: inline-block;
+        height: 27px;
+        width: 35px;
+        text-align: center;
+        padding-top: 8px;
+      }
+
+      .belo span:nth-child(even) {
+        color: white;
+        background-color: black;
+      }
+
+      .crno span:nth-child(odd) {
+        color: white;
+        background-color: black;
+      }
+
+      .tabla {
+        display: inline-block;
+        margin-left: 50px;
+        border: 5px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <p id="boja">
+      Na osnovu unete boje na engleskom jeziku obojiti tekst paragrafa u crveno,
+      zeleno ili plavo. Ukoliko nije uneta ni jedna od ove tri boje, tekst
+      paragrafa obojiti u žuto.
+    </p>
+
+    <!-- <script src="if.js"></script> -->
     <!-- <script src="petlje.js"></script> -->
-    <!-- <script src="switch.js"></script> -->
-</body>
+    <script src="switch.js"></script>
+  </body>
 </html>
