@@ -1,12 +1,12 @@
 //9. ZADATAK
 
-// console.log("9. Zadatak Ispisati dvostruku vrednost brojeva od 5 do 15.");
+console.log("9. Zadatak Ispisati dvostruku vrednost brojeva od 5 do 15.");
 
-// let broj = 5;
-// while (broj <= 15) {
-//   console.log(broj * 2);
-//   broj++;
-// }
+let broj = 5;
+while (broj <= 15) {
+  console.log(broj * 2);
+  broj++;
+}
 
 //10. ZADATAK
 
@@ -135,12 +135,12 @@ n = 15;
 suma = 0;
 
 for (i = n; i > 0; i--) {
-  if (i % 3 == 0 && i % 2 == 1) {
+  if (i % 3 == 0 && i % 2 == 1 && n % i == 0) {
     suma++;
   }
 }
 
-console.log(`${n} ima ${suma} neparnih broj/a/eva koji su deljivi brojem 3.`);
+console.log(`${n} ima ${suma} neparnih delioca koji su deljivi brojem 3.`);
 
 // //17. ZADATAK
 
