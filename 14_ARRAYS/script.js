@@ -510,8 +510,12 @@ console.log(prvOslovoA(niz));
 
 // 24. ZADATAK kombinacija 2 niza alternativno cine treci niz
 
-let niz1 = [1,2,3,4,5,6,7,8,9];
-niz2 = ["a", "b","c","d","e","d","e","i"];
+
+console.log('||||||||||||||||||||ZADATAK kombinacija 2 niza alternativno cine treci niz|||||||||||||||||||||');
+
+
+let niz1 = [1,4,7,-5];
+niz2 = [6,6,0,9];
 
 let noviNiz = (niz1,niz2) => {
     let n = 0;
@@ -520,7 +524,7 @@ let noviNiz = (niz1,niz2) => {
         for(let i = 0; i <niz2.length; i++){
             niz3.push(niz1[i]);
             niz3.push(niz2[i]);
-            n = niz1[i];
+            n = i;
         }
         console.log(niz3); //test pre dodavanja preostalih elemenata
         for(let i = n; i < niz1.length; i++){
@@ -539,10 +543,30 @@ let noviNiz = (niz1,niz2) => {
         }
         console.log(niz3);
     }
-}
+};
     
 noviNiz(niz1,niz2);
 // i stavio sam pretpostavku da mogu da budu razlicite duzine  nizovi
+
+
+////// STEFANOV NACIN
+let a = [1,4,7,-5];
+let b = [6,6,0,9];
+
+let zad24 = (a,b) => {
+    let c = [];
+    for(let i = 0; i < a.length; i++){
+        c[2*i] = a[i];
+        b[2*i +1] = b[i];
+    };
+    return c;
+};
+
+let res = zad24(a,b);
+console.log(res);
+
+
+
 
 // 25. ZADATAK kombinacija 2 niza cine treci niz elementi se mnoze
 
