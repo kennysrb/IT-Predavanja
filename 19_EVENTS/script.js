@@ -127,9 +127,4 @@ btnPosalji.addEventListener('click', (e)=>{
         pIspis.innerHTML += " i nije se opredelio za pol."
     };
     };
-    
-    
-
-    
-    
 });

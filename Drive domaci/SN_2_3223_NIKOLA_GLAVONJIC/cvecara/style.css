@@ -1,0 +1,54 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    color: #536e13;
+}
+
+.container{
+    background-image: url(./cvecara.webp);
+    background-size: cover;
+    height: 100vh;
+}
+
+#forma{
+    width: 50%;
+    margin-left: 250px;
+    padding-top: 30px;
+    
+}
+
+h2{
+    margin-bottom: 10px;
+    margin-top: 20px;
+    font-size: 2em;
+}
+
+input[type='number']{
+    border-radius: 5px;
+    padding: 5px;
+    margin-bottom: 5px;
+}
+
+#izabrani_pokloni{
+    display: flex;
+    flex-direction: column;
+    margin-left: 30px;
+    margin-right: 30px;
+}
+#cena_bez_popusta{
+    margin-bottom: 30px;
+    font-size: 1.5em;
+    margin-left: 20px;
+}
+
+#cena_sa_popustom{
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-left: 20px;
+}
+
+#korpa{
+    display: flex;
+    padding-bottom: 204px;
+}

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <form action="" id="forma">
+            <p id="cvece">
+                <h2>Odaberite cvece:</h2>
+                <input type="number" id="ruze" placeholder="Cena po cvetu je 150 din.">
+                <label>Ruze</label>
+                <br>
+                <input type="number" id="ljiljani" placeholder="Cena po cvetu je 120 din.">
+                <label>ljiljani</label>
+                <br>
+                <input type="number" id="gerberi" placeholder="Cena po cvetu je 70 din.">
+                <label>Gerberi</label>
+            </p> 
+            <p id="pokloni">
+                <h2>Dodatni pokloni:</h2>
+                <input type="checkbox" name="pokloni" id="bombonjera">Bombonjera
+                <br>
+                <input type="checkbox" name="pokloni" id="cokolada">Cokolada
+                <br>
+                <input type="checkbox" name="pokloni" id="sampanjac">Sampanjac
+            </p>
+            <p id="placanje">
+                <h2>Placanje:</h2>
+                <input type="radio" name="placanje" value="kes" id="kes">Kes
+                <br>
+                <input type="radio" name="placanje" value="kartica" id="kartica" checked>Kartica
+            </p>
+            <p id="action">
+                <button id="izracunaj">izracunaj</button>
+                <button id="reset">Resetuj</button>
+            </p>
+    
+            <!-- //porudzbina -->
+    
+    
+            <div id="korpa">
+                <h2>Vasa porudzbina:</h2>
+                <!-- //Slike cveca -->
+                <div class="slike">
+                    <div id="ruze_slike"></div>
+                    <div id="ljiljani_slike"></div>
+                    <div id="gerberi_slike"></div>
+                </div>
+    
+                <!-- //Izabrani pokloni -->
+                <div id="izabrani_pokloni">
+                </div>
+    
+                <!-- //Ukupna cena -->
+                <div class="cena">
+                    <p id="cena_bez_popusta"></p>
+                    <p id="cena_sa_popustom" class="show hide" ></p>                
+                </div>
+            </div>
+        </form>
+
+    </div>
+    
+
+
+    
+
+
+
+
+    <script src="./script.js"></script>
+</body>
+</html>
