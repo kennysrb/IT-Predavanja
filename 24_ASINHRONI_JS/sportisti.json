@@ -1,0 +1,17 @@
+[
+    {
+      "imePrezime": "Petar Petrovic",
+      "visina": 190,
+      "timovi": ["Crvena Zvezda", "Partizan", "Radnicki"]
+    },
+    {
+        "imePrezime": "Alex Ovechkin",
+        "visina": 189,
+        "timovi": ["CSKA", "Washington"]
+      },
+      {
+        "imePrezime": "Marko Markovic",
+        "visina": 175,
+        "timovi": ["FMP", "Zenit", "Barcelona", "Partizan"]
+      }
+]

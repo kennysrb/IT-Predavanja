@@ -1,0 +1,41 @@
+.stoperica{
+    width: 25%;
+    margin: auto;
+    margin-top: 50px;
+    background-color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 200px;
+    border-radius: 20px;
+    color: white;
+}
+
+.dugmad{
+    margin-top: 20px;
+}
+
+button{
+    border-radius: 5px;
+    background-color: #999;
+    padding: 2px 5px 2px 5px; 
+    color: #333;
+}
+
+#start:hover{
+    cursor: pointer;
+    background-color: green;
+}
+#stop:hover{
+    cursor: pointer;
+    background-color: red;
+}
+
+.text{
+    border-radius: 10px;
+    text-align: center;
+}
+
+.pauza{
+    background-color: lightskyblue;
+}

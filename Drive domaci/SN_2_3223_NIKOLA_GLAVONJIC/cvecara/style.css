@@ -8,7 +8,17 @@
 .container{
     background-image: url(./cvecara.webp);
     background-size: cover;
-    height: 100vh;
+    height: 100%;
+   background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+
+            /* background-image: url(./cvecara.webp);
+            background-size: cover;
+            height: 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed; */
 }
 
 #forma{

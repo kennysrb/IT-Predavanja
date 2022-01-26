@@ -160,6 +160,7 @@ let p_rez;
 btn_submit.addEventListener('click', (e)=>{
     let br_tacnih = 0;
     e.preventDefault();
+    btn_submit.disabled = true;
     let kviz_resenja = arr => {
     for (let i = 0; i < 5; i++){
         if(tacan_odg2[i].checked){

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+    <div class="lista">
+        <h1>Moj podsetnik</h1>
+        <ul class="to_do">
+            
+            <li class="stavke"id="racuni">Plati racune</li>
+            <li class="stavke"id="predavanja">Pripremi predavanja</li>
+            <li class="stavke"id="mail">Odgovori na mail</li>
+            <li class="stavke">Trening</li>
+        </ul>
+        <form id="addForm" action="">
+            <input type="text" name="" id="item" placeholder="Unesite obavezu">
+            <!-- <button class="dugme" type="submit">Dodaj</button> -->
+            <div class="radio">
+                <input type="radio" class="krug" name="dodaj" id="pocetak" checked><label for="pocetak">Dodaj na pocetak</label>
+                <input type="radio" class="krug" name="dodaj" id="kraj"><label for="pocetak">Dodaj na kraj</label>
+            </div>
+            
+        </form>
+    </div>
+   
+
+
+    <script src="./main.js"></script>
+</body>
+</html>

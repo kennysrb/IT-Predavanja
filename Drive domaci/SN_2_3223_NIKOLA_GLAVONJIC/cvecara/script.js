@@ -48,6 +48,7 @@ let slike;
 btn_izracunaj.addEventListener('click', (e)=>{
     btn_izracunaj.disabled = true;
     e.preventDefault();
+    // ruze_slike = "";
     sum = 0;
     sum += input_ruze.value*150;
     sum += input_ljiljani.value*120;
@@ -72,9 +73,9 @@ btn_izracunaj.addEventListener('click', (e)=>{
         p_bez_popusta.innerHTML = `Cena bez popusta je: ${sum}`;
     };
 
-    if(input_kes.checked){
-        p_popust.style = `display:none;`
-    }
+    // if(input_kes.checked){
+    //     p_popust.style = `display:none;`
+    // }
 
     // dodavanje slika
     

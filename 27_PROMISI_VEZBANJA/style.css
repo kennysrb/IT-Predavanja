@@ -1,0 +1,14 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+
+.formica{
+    margin: auto;
+    margin-top: 250px;
+    width: 70%;
+    display: flex;
+    justify-content: center;
+}

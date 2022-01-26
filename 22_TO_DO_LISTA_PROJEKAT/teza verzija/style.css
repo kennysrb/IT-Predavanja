@@ -1,0 +1,116 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    color:white;
+}
+
+.lista{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #333;
+    border-radius: 15px;
+    width: 50%;
+    margin: auto;
+    padding-bottom: 30px;
+}
+
+ul{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    padding-top: 10px;
+    color: white;
+    align-items: center;
+    padding-bottom: 20px;
+    width: 100%;
+}
+
+.stavke{
+    background-color: rgb(173, 157, 157);
+    width: 50%;
+    text-align: center;
+    margin-top: 10px;
+    padding: 5px;
+    border-radius: 10px;    
+}
+
+.stavke:hover{
+    background-color: rgb(228, 210, 210);
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: line-through;
+}
+
+h1{
+    padding-top: 30px;
+    margin-bottom: 20px;
+    color: white;
+}
+
+#addForm{
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+}
+
+#item{
+    border-radius: 10px;
+    text-align: center;
+    padding: 2px 5px 2px 5px;
+}
+.dugme{
+    background-color: rgb(38, 139, 38);
+    color: wheat;
+    border-radius: 10px;
+    padding: 2px 5px 2px 5px;
+    margin-top: 5px;
+}
+
+.radio{
+    padding-top: 10px;
+    /* display: flex; */
+}
+
+
+input[type='radio']:after {
+    width: 10px;
+    height: 10px;
+    border-radius: 10px;
+    top: -2px;
+    left: -1px;
+    position: relative;
+    background-color: #d1d3d1;
+    content: '';
+    display: inline-block;
+    visibility: visible;
+    border: 2px solid white;
+}
+
+input[type='radio']:checked:after {
+    width: 10px;
+    height: 10px;
+    border-radius: 10px;
+    top: -2px;
+    left: -1px;
+    position: relative;
+    background-color: red;
+    content: '';
+    display: inline-block;
+    visibility: visible;
+    border: 2px solid white;
+}
+
+
+.crossed{
+    text-decoration: line-through;
+}
+
+
+
+
