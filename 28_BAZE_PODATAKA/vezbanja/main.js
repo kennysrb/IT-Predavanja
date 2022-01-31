@@ -95,3 +95,28 @@ db.collection("customers")
     console.log(`Greska prilikom brisanja dokumenta ${err}`);
   });
 console.log("Test poruka");
+
+// drugi nacin za dodavanje dokumenata
+
+db.collection("tasks")
+  .add({
+    title: "Vezba za projekat",
+    description: "Vezbanje JS",
+    start_date: firebase.firestore.Timestamp.fromDate(new Date("2022-01-29")),
+    due_date: null,
+    priority: true,
+  })
+  .then(() => {
+    console.log("Uspesno dodat dokument");
+  })
+  .catch((err) => {
+    console.log(`Doslo je do greske ${err}`);
+  });
+
+/* 
+db.collection('...').add()  je isto sto i  db.collection('....').doc().set()
+  - dodaje novi dokument sa random generisanjim ID-em
+
+db.collection('...').doc(id).set()
+  - dodaje novi dokument sa zadatim ID-em
+*/
