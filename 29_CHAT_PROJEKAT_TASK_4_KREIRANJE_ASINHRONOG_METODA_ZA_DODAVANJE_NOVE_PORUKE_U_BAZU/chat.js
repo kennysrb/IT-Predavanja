@@ -25,9 +25,8 @@ class Chatroom {
 
   //METODE
 
-  //generating and adding new message
+  //DODAVANJE NOVE PORUKE
   async addChat(msg) {
-    //dohvatanje trenutnog vremena koji nam je potreban za timestamp (created_at polje u dokumentu)
     let date = new Date();
 
     //kreiranje novog dokumenta/objekta koji prosledjujem bazi podataka
@@ -41,9 +40,18 @@ class Chatroom {
     //Da sacuvam dokument u db firestore
     let response = await this.chats.add(docChat);
     return response; //vraca promise i mogu za njega da kazem .then i .catch
+  }
 
-    //dodavanje dokumenta u kolekciju na firestore
-    this.chats.add(docChat);
+  //METOD KOJI PRATI PROMENE U BAZI I VRACA PORUKE
+  getChats(callback) {
+    this.chats.onSnapshot((snapshot) => {
+      snapshot.docChanges().forEach((change) => {
+        //ISPISATI DOKUMENTE KOJI SU DODATI U BAZU
+        if (change.type == "added") {
+          callback(change.doc.data()); //prosledjivanje dokumenta na ispis koji se realizuje realizovanjem callback f-je
+        }
+      });
+    });
   }
 }
 
@@ -56,7 +64,26 @@ console.log(chatroom1.room, chatroom1.username);
 
 let chatroom2 = new Chatroom("general", "Milena");
 
-chatroom2
-  .addChat("Trening pisanja CV-a")
-  .then(() => console.log(`Uspesno dodat chat`))
-  .catch((err) => console.log(err));
+//DODAVANJE PORUKE
+
+// chatroom2
+//   .addChat("Trening pisanja CV-a")
+//   .then(() => console.log(`Uspesno dodat chat`))
+//   .catch((err) => console.log(err));
+
+chatroom2.getChats((d) => {
+  console.log(d.message);
+});
+
+
+let dropdown_btn = document.querySelector("#dropdown_btn");
+let chatrooms = document.querySelector(".chatrooms");
+let chevron_up = document.querySelector('#up');
+let chevron_down = document.querySelector('#down');
+dropdown_btn.addEventListener('click',(e)=>{
+  e.preventDefault();
+  chatrooms.classList.toggle('active');
+  chevron_down.classList.toggle('hide');
+  chevron_up.classList.toggle('show');
+  dropdown_btn.classList.toggle('border');
+})

@@ -1,73 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
     <title>IT Bootcamp Chat</title>
-</head>
-<body>
+  </head>
+  <body>
+    <div class="chat">
+      <!-- HEADER -->
+      <header>
+        <h1>IT<span id="green">Bootcamp</span> Chat</h1>
+        <h3>Choose a chatroom</h3>
+      </header>
+      <div class="dropdown container">
+        <button class="btn" id="dropdown_btn">Choose a chatroom <span id="down"><i class="fas fa-chevron-down down"></i></span> <span id="up"><i class="fas fa-chevron-up"></i></span></button>
+      </div>
 
-<div class="chat">
-
-    <!-- HEADER -->
-    <header>
-        <h1>It Bootcamp Chat</h1>
-        <h2>Choose a chatroom</h2>
-    </header>
-
-    <!-- NAVBAR - CHATROOMS -->
-    <nav class="chatrooms container">
-        <button id="gtn_general" class="room btn">#general</button>
+      <!-- NAVBAR - CHATROOMS -->
+      <nav class="chatrooms container">
+        <button id="btn_general" class="room btn">#general</button>
         <button id="btn_js" class="room btn">#js</button>
         <button id="btn_homeworks" class="room btn">#homeworks</button>
         <button id="btn_test" class="room btn">#tests</button>
-    </nav>
+      </nav>
 
+      <section class="msg-display container">
 
-    <section class="msg-display container">
-        <ul>
-            <!-- mesto za poruke -->
-        </ul>
-    </section>
+        <p class="poruke p1">Hello, how are you?</p>
+        <br>
+        <p class="poruke p2">I'm good thanks</p>
+        <br>
+        <p class="poruke p2">Whan about you?</p>
+        <br>
+        <p class="poruke p1">I'm fine thank you.</p>
+        <br>
+        <p class="poruke p1">Have you been at work today?</p>
 
+        <!-- <ul>
+        </ul> -->
+      </section>
 
-    <form action="" class="messages container" id="input_message">
-        <input type="text" name="message" placeholder="Your message..." class="message_text"">
-        <input type="submit" value="Send" class="btn send room"  id="btn_message">
-    </form>
-    
-    <form action="" class="messages container" id="input_usrename">
-        <input type="text" name="username"  placeholder="Update username" class="message_text">
-        <input type="submit" value="Update" class="btn send room" id="btn_username">
-    </form>
-</div>
+      <form action="" class="messages container" id="input_message">
+        <input type="text" name="message" placeholder="Your message..."
+        class="message_text"">
+        <input type="submit" value="Send" class="btn send" id="btn_message" />
+      </form>
 
+      <form action="" class="messages container" id="input_usrename">
+        <input
+          type="text"
+          name="username"
+          placeholder="Update username"
+          class="message_text"
+        />
+        <input
+          type="submit"
+          value="Update"
+          class="btn send"
+          id="btn_username"
+        />
+      </form>
+    </div>
 
-
-    
-    
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-firestore.js"></script>
     <script>
-        const firebaseConfig = {
-          apiKey: "AIzaSyCILd8SrtooG3HXqa54yk-kRV56gp0rBWo",
-          authDomain: "bootcamp-project-a7437.firebaseapp.com",
-          projectId: "bootcamp-project-a7437",
-          storageBucket: "bootcamp-project-a7437.appspot.com",
-          messagingSenderId: "840907291018",
-          appId: "1:840907291018:web:c73c675eb193ecd6fcb073",
-          measurementId: "G-1W0LX2RC6L",
-        };
-  
-        // Initialize Firebase
-        firebase.initializeApp(firebaseConfig);
-        let db = firebase.firestore();
-      </script>
+      const firebaseConfig = {
+        apiKey: "AIzaSyCILd8SrtooG3HXqa54yk-kRV56gp0rBWo",
+        authDomain: "bootcamp-project-a7437.firebaseapp.com",
+        projectId: "bootcamp-project-a7437",
+        storageBucket: "bootcamp-project-a7437.appspot.com",
+        messagingSenderId: "840907291018",
+        appId: "1:840907291018:web:c73c675eb193ecd6fcb073",
+        measurementId: "G-1W0LX2RC6L",
+      };
+
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      let db = firebase.firestore();
+    </script>
 
     <script src="./chat.js"></script>
-
-</body>
+  </body>
 </html>

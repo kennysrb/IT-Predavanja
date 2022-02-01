@@ -1,10 +1,10 @@
-*{
-    box-sizing: border-box;
-    margin: 0%;
+* {
+  box-sizing: border-box;
+  margin: 0%;
 }
 
-ul{
-    list-style: none;
+ul {
+  list-style: none;
 }
 
 /* .topbar{
@@ -34,41 +34,38 @@ ul{
 
 } */
 
-
 /* vertical */
 
-.topbar{
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100%;
-    background-color: #333;
-    width: 10%;
+.topbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background-color: #333;
+  width: 10%;
 }
 
-.topbar ul{
-    background-color: #333;
-    width: 100%;
-    padding: 0;
+.topbar ul {
+  background-color: #333;
+  width: 100%;
+  padding: 0;
 }
 
-.topbar ul li{
-    text-align: left;
-    color: white;
-    height: 100%;
-    margin-bottom: 12px;
+.topbar ul li {
+  text-align: left;
+  color: white;
+  height: 100%;
+  margin-bottom: 12px;
 }
 
-.topbar ul li:first-child{
-    margin-top: 25px;
+.topbar ul li:first-child {
+  margin-top: 25px;
 }
 
-.topbar ul li:hover{
-    background-color: red;
-
+.topbar ul li:hover {
+  background-color: red;
 }
 
-.icon{
-    padding: 10px;
+.icon {
+  padding: 10px;
 }
-
