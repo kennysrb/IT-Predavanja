@@ -93,6 +93,7 @@ header h3{
   border: none;
     border-radius: 25px;
     padding: 5px;
+    color: #333;
 }
 
 .send {
@@ -158,6 +159,7 @@ header h3{
   .dropdown {
     display: flex;
     flex-direction: column;
+    margin-top: 10px;
   }
 
   #dropdown_btn{
@@ -224,7 +226,93 @@ header h3{
 
 /* TABLET */
 
-@media only screen and (min-width: 601px) and (max-width: 999px) {
+@media only screen and (min-width: 601px) and (max-width: 1210px) {
+  .chat {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    border-radius: 0;
+    padding: 0;
+    padding-top: 20px;
+  }
+  .btn {
+    margin: 0;
+    border-radius: 0;
+  }
+  header h1{
+    margin-bottom: 20px;
+  }
+
+  header h3{
+    display: none;
+  }
+  .dropdown {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+  }
+
+  #dropdown_btn{
+    border-radius: 10px;
+    color: white;
+  }
+
+  #dropdown_btn.border{
+    border-radius: 10px 10px 0 0;
+  }
+
+  #up {
+    display: none;
+  }
+
+  #down{
+    display: inline;
+  }
+
+  #down.hide{
+    display: none;
+  }
+
+  #up.show{
+    display: inline;
+  }
+
+  .chatrooms {
+    flex-direction: column;
+    position: absolute;
+    left: 0;
+    right: 0;
+    display: none;
+    z-index: 9000;
+  }
+  .chatrooms.active {
+    display: flex;
+  }
+
+  .room{
+    border-bottom: 1px solid #fff;
+  }
+
+  .room:last-child{
+    border-radius: 0 0 10px 10px;
+    border-bottom: none;
+  }
+
+  .msg-display {
+    height: 430px;
+    margin-bottom: 5px;
+  }
+
+  .send{
+    padding: 5px 0;
+    border-radius: 25px;
+    background-color: #333;
+    color: #fff;
+  }
+  .messages{
+    margin-top: 3px;
+  }
 }
 
 /* DESKTOP */

@@ -5,18 +5,26 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+    />
     <title>IT Bootcamp Chat</title>
   </head>
   <body>
     <div class="chat">
       <!-- HEADER -->
-      <header>
+      <header class="select_user">
         <h1>IT<span id="green">Bootcamp</span> Chat</h1>
         <h3>Choose a chatroom</h3>
       </header>
+
       <div class="dropdown container">
-        <button class="btn" id="dropdown_btn">Choose a chatroom <span id="down"><i class="fas fa-chevron-down down"></i></span> <span id="up"><i class="fas fa-chevron-up"></i></span></button>
+        <button class="btn" id="dropdown_btn">
+          Choose a chatroom
+          <span id="down"><i class="fas fa-chevron-down down"></i></span>
+          <span id="up"><i class="fas fa-chevron-up"></i></span>
+        </button>
       </div>
 
       <!-- NAVBAR - CHATROOMS -->
@@ -28,33 +36,26 @@
       </nav>
 
       <section class="msg-display container">
-
         <p class="poruke p1">Hello, how are you?</p>
-        <br>
+        <br />
         <p class="poruke p2">I'm good thanks</p>
-        <br>
+        <br />
         <p class="poruke p2">Whan about you?</p>
-        <br>
+        <br />
         <p class="poruke p1">I'm fine thank you.</p>
-        <br>
+        <br />
         <p class="poruke p1">Have you been at work today?</p>
 
         <!-- <ul>
         </ul> -->
       </section>
-
-      <form action="" class="messages container" id="input_message">
-        <input type="text" name="message" placeholder="Your message..."
-        class="message_text"">
-        <input type="submit" value="Send" class="btn send" id="btn_message" />
-      </form>
-
       <form action="" class="messages container" id="input_usrename">
         <input
           type="text"
           name="username"
           placeholder="Update username"
           class="message_text"
+          id="update_input"
         />
         <input
           type="submit"
@@ -62,6 +63,11 @@
           class="btn send"
           id="btn_username"
         />
+      </form>
+      <form action="" class="messages container" id="input_message">
+        <input type="text" name="message" placeholder="Your message..."
+        class="message_text"">
+        <input type="submit" value="Send" class="btn send" id="btn_message" />
       </form>
     </div>
 

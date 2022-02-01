@@ -11,7 +11,12 @@ class Chatroom {
     this._room = r;
   }
   set username(u) {
-    this._username = u;
+    let u1 = u.trim();
+    if(u1.length >=2 && u1.length <= 10){
+      this._username = u1;
+    }else{
+      alert('Username not valid')
+    }
   }
 
   //GETERI
@@ -44,11 +49,19 @@ class Chatroom {
 
   //METOD KOJI PRATI PROMENE U BAZI I VRACA PORUKE
   getChats(callback) {
-    this.chats.onSnapshot((snapshot) => {
-      snapshot.docChanges().forEach((change) => {
+    this.chats
+    .where("room", "==", this.room)
+    .orderBy("created_at").onSnapshot((snapshot) => {
+      let changes = snapshot.docChanges();
+      changes.forEach((change) => {
+        let type = change.type;
+        let doc = change.doc;
         //ISPISATI DOKUMENTE KOJI SU DODATI U BAZU
-        if (change.type == "added") {
-          callback(change.doc.data()); //prosledjivanje dokumenta na ispis koji se realizuje realizovanjem callback f-je
+        if (type == "added") {
+          let obj = doc.data();
+          if(obj.room === this.room){
+            callback(obj); //prosledjivanje dokumenta na ispis koji se realizuje realizovanjem callback f-je
+          }
         }
       });
     });
@@ -76,6 +89,10 @@ chatroom2.getChats((d) => {
 });
 
 
+
+
+
+
 let dropdown_btn = document.querySelector("#dropdown_btn");
 let chatrooms = document.querySelector(".chatrooms");
 let chevron_up = document.querySelector('#up');
@@ -86,4 +103,4 @@ dropdown_btn.addEventListener('click',(e)=>{
   chevron_down.classList.toggle('hide');
   chevron_up.classList.toggle('show');
   dropdown_btn.classList.toggle('border');
-})
+});
