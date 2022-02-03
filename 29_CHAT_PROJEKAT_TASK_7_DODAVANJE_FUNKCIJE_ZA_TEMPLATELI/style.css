@@ -7,7 +7,7 @@
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  background-color: #0e0e0e;
+  background-color: #11081a;
 }
 
 a {
@@ -27,11 +27,12 @@ ul {
   border: 2px solid #333;
   border-radius: 8px;
   background-color: #252331;
-  width: 30%;
+  width: 40%;
   margin: auto;
   margin-top: 100px;
   padding: 20px 0;
   box-shadow: 5px 5px 40px #53b87b52;
+  height: 100%;
 }
 .btn {
   background-color: #333;
@@ -77,23 +78,32 @@ header h3 {
 .msg-display {
   height: 300px;
   background-color: #252331;
+  background-image: url(./img/bck.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
   border-radius: 5px;
-  position: relative;
   overflow-x: hidden;
   overflow-y: auto;
 }
 
 .msg-display li {
   margin: 10px;
-  border-radius: 10px 10px 0 10px;
+  border-radius: 10px 10px 10px 0;
   padding: 4px 5px;
   background-color: #53b87c;
   color: white;
+  width: 51%;
+  float: left;
+  display: block !important;
 }
 
 .msg-display li:nth-child(odd) {
+  border-radius: 10px 10px 0 10px;
   background-color: #fff;
   color: #1b1827;
+  float: right;
+  display: block !important;
 }
 
 .msg-display::-webkit-scrollbar {
@@ -101,16 +111,17 @@ header h3 {
 }
 .messages {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
 }
 
 .message_text {
-  width: 80%;
+  width: 70%;
   border: none;
   border-radius: 25px;
   padding: 5px;
   color: #333;
+  text-align: center;
 }
 
 .send {
@@ -149,6 +160,32 @@ header h3 {
   color: #1b1827;
 }
 
+/* notifikacija za username */
+
+#username{
+  height: 60px;
+  width: 200px;
+  border-radius: 25px 25px 25px 0;
+  background-color: #fff;
+  position: absolute;
+  bottom: 160px;
+  right: 285px;
+  display: none;
+  text-align: center;  
+  font-weight: bold;
+}
+
+#username p{
+  color: #251b3c;
+}
+
+#username.show{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 /* MOBILE */
 
 @media only screen and (max-width: 600px) {
@@ -156,10 +193,10 @@ header h3 {
     position: relative;
     width: 100%;
     height: 100vh;
-    margin: 0;
     border-radius: 0;
     padding: 0;
     padding-top: 20px;
+    margin-top: 0;
   }
   .btn {
     margin: 0;
@@ -172,6 +209,7 @@ header h3 {
   header h3 {
     display: none;
   }
+
   .dropdown {
     display: flex;
     flex-direction: column;
@@ -218,6 +256,10 @@ header h3 {
   .room {
     border-bottom: 1px solid #fff;
   }
+  .room:hover{
+    transform: none;
+
+  }
 
   .room:last-child {
     border-radius: 0 0 10px 10px;
@@ -225,7 +267,7 @@ header h3 {
   }
 
   .msg-display {
-    height: 430px;
+    height: 72vh;
     margin-bottom: 5px;
   }
 
@@ -244,13 +286,11 @@ header h3 {
 
 @media only screen and (min-width: 601px) and (max-width: 1210px) {
   .chat {
-    position: relative;
     width: 100%;
     height: 100vh;
-    margin: 0;
     border-radius: 0;
-    padding: 0;
     padding-top: 20px;
+    margin-top: 0;
   }
   .btn {
     margin: 0;
@@ -315,9 +355,13 @@ header h3 {
     border-bottom: none;
   }
 
+  .room:hover {
+    transform: none;
+  }
+
   .msg-display {
-    height: 430px;
-    margin-bottom: 5px;
+    height: 70vh;
+    margin-bottom: 25px;
   }
 
   .send {

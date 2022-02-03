@@ -12,10 +12,12 @@ export class Chatroom {
   }
   set username(u) {
     let u1 = u.trim();
-    if(u1.length >=2 && u1.length <= 10){
+    if (u1.length >= 2 && u1.length <= 10) {
       this._username = u1;
-    }else{
-      alert('Username not valid')
+    } else {
+      alert(
+        "Username must be between 2 and 10 characters long and cannot be made of spaces only"
+      );
     }
   }
 
@@ -29,6 +31,23 @@ export class Chatroom {
   }
 
   //METODE
+
+  //USER UPDATE
+  update_user(u) {
+    let u1 = u.trim();
+    if (u1.length >= 2 && u1.length <= 10) {
+      this._username = u1;
+    } else {
+      alert(
+        "Username must be between 2 and 10 characters long and cannot be made of spaces only"
+      );
+    }
+  }
+
+  //CHANGE ROOM
+  change_room(r){
+    this.room = r;
+  }
 
   //DODAVANJE NOVE PORUKE
   async addChat(msg) {
@@ -50,20 +69,21 @@ export class Chatroom {
   //METOD KOJI PRATI PROMENE U BAZI I VRACA PORUKE
   getChats(callback) {
     this.chats
-    .where("room", "==", this.room)
-    .orderBy("created_at").onSnapshot((snapshot) => {
-      let changes = snapshot.docChanges();
-      changes.forEach((change) => {
-        let type = change.type;
-        let doc = change.doc;
-        //ISPISATI DOKUMENTE KOJI SU DODATI U BAZU
-        if (type == "added") {
-          let obj = doc.data();
-          if(obj.room === this.room){
-            callback(obj); //prosledjivanje dokumenta na ispis koji se realizuje realizovanjem callback f-je
+      .where("room", "==", this.room)
+      .orderBy("created_at")
+      .onSnapshot((snapshot) => {
+        let changes = snapshot.docChanges();
+        changes.forEach((change) => {
+          let type = change.type;
+          let doc = change.doc;
+          //ISPISATI DOKUMENTE KOJI SU DODATI U BAZU
+          if (type == "added") {
+            let obj = doc.data();
+            if (obj.room === this.room) {
+              callback(obj); //prosledjivanje dokumenta na ispis koji se realizuje realizovanjem callback f-je
+            }
           }
-        }
+        });
       });
-    });
   }
 }

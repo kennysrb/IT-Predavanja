@@ -35,19 +35,9 @@
         <button id="btn_test" class="room btn">#tests</button>
       </nav>
 
-      <section class=" container">
-        <!-- <p class="poruke p1">Hello, how are you?</p>
-        <br />
-        <p class="poruke p2">I'm good thanks</p>
-        <br />
-        <p class="poruke p2">Whan about you?</p>
-        <br />
-        <p class="poruke p1">I'm fine thank you.</p>
-        <br />
-        <p class="poruke p1">Have you been at work today?</p> -->
-
-        <ul class="msg-display">
-        </ul>
+      <!-- ISPIS PORUKE -->
+      <section class="container">
+        <ul class="msg-display"></ul>
       </section>
       <form action="" class="messages container" id="input_usrename">
         <input
@@ -65,10 +55,18 @@
         />
       </form>
       <form action="" class="messages container" id="input_message">
-        <input type="text" name="message" placeholder="Your message..."
-        class="message_text"">
+        <input
+          type="text"
+          name="message"
+          placeholder="Your message..."
+          class="message_text"
+          id="message"
+        />
         <input type="submit" value="Send" class="btn send" id="btn_message" />
       </form>
+    </div>
+    <div id="username">
+      <p>New username:</p>
     </div>
 
     <!-- The core Firebase JS SDK is always required and must be listed first -->
