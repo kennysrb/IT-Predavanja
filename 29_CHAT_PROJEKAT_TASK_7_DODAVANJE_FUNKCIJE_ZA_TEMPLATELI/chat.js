@@ -14,10 +14,12 @@ export class Chatroom {
     let u1 = u.trim();
     if (u1.length >= 2 && u1.length <= 10) {
       this._username = u1;
+      return true;
     } else {
       alert(
         "Username must be between 2 and 10 characters long and cannot be made of spaces only"
       );
+      return false;
     }
   }
 

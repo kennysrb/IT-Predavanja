@@ -1,11 +1,22 @@
 import { Chatroom } from "./chat.js";
 import { chatUI } from "./ui.js";
 
-let chatroom2 = new Chatroom("general", "Anonymus");
+
+//DOM
 let ul = document.querySelector(".msg-display");
+let notification = document.querySelector('#username');
+let upd_btn = document.querySelector("#btn_username");
+let dropdown_btn = document.querySelector("#dropdown_btn");
+let chatrooms = document.querySelector(".chatrooms");
+let chevron_up = document.querySelector("#up");
+let chevron_down = document.querySelector("#down");
+
+//OBJECTS
+let chatroom = new Chatroom("js", "Anonymus");
 let c = new chatUI(ul);
 
-chatroom2.getChats((d) => {
+//ISPIS IZ DB NA STRANICI
+chatroom.getChats((d) => {
   c.templateLI(d);
 });
 
@@ -16,7 +27,7 @@ send_btn.addEventListener("click", (e) => {
   e.preventDefault();
   let msg_input = document.querySelector("#message");
   let new_msg = document.querySelector("#message").value;
-  chatroom2
+  chatroom
     .addChat(new_msg)
     .then(() => {
       console.log("Poruka uspesno dodata.");
@@ -27,14 +38,13 @@ send_btn.addEventListener("click", (e) => {
     });
 });
 
-// UPDATE DUGME
-let notification = document.querySelector('#username');
-let upd_btn = document.querySelector("#btn_username");
+// UPDATE USER DUGME
+
 upd_btn.addEventListener("click", (e) => {
   e.preventDefault();
   let user_input = document.querySelector("#update_input");
   let new_user = document.querySelector("#update_input").value;
-  chatroom2.update_user(new_user);
+  chatroom.update_user(new_user);
   if(new_user.trim().length >= 2 && new_user.trim().length <=10){
     let p = document.createElement('p');
     p.innerHTML = new_user.trim();
@@ -51,10 +61,7 @@ upd_btn.addEventListener("click", (e) => {
 
 //DROPDOWN MENU
 
-let dropdown_btn = document.querySelector("#dropdown_btn");
-let chatrooms = document.querySelector(".chatrooms");
-let chevron_up = document.querySelector("#up");
-let chevron_down = document.querySelector("#down");
+
 dropdown_btn.addEventListener("click", (e) => {
   e.preventDefault();
   chatrooms.classList.toggle("active");
@@ -73,12 +80,12 @@ dropdown_btn.addEventListener("click", (e) => {
 // let general_btn = document.querySelector("#btn_general");
 // general_btn.addEventListener("click", (e) => {
 //   e.preventDefault();
-//   chatroom2.change_room("general");
+//   chatroom.change_room("general");
 //   let li = document.querySelectorAll('li');
 //   li.forEach(li=>{
 //     li.remove();
 //   })
-//   chatroom2.getChats((d) => {
+//   chatroom.getChats((d) => {
 //     c.templateLI(d);
 //   });
 //   chatrooms.classList.toggle("active");
@@ -87,12 +94,12 @@ dropdown_btn.addEventListener("click", (e) => {
 // let js_btn = document.querySelector("#btn_js");
 // js_btn.addEventListener("click", (e) => {
 //   e.preventDefault();
-//   chatroom2.change_room("js");
+//   chatroom.change_room("js");
 //   let li = document.querySelectorAll('li');
 //   li.forEach(li=>{
 //     li.remove();
 //   })
-//   chatroom2.getChats((d) => {
+//   chatroom.getChats((d) => {
 //     c.templateLI(d);
 //   });
 //   chatrooms.classList.toggle("active");
@@ -101,12 +108,12 @@ dropdown_btn.addEventListener("click", (e) => {
 // let homeworks_btn = document.querySelector("#btn_homeworks");
 // homeworks_btn.addEventListener("click", (e) => {
 //   e.preventDefault();
-//   chatroom2.change_room("homeworks");
+//   chatroom.change_room("homeworks");
 //   let li = document.querySelectorAll('li');
 //   li.forEach(li=>{
 //     li.remove();
 //   })
-//   chatroom2.getChats((d) => {
+//   chatroom.getChats((d) => {
 //     c.templateLI(d);
 //   });
 //   chatrooms.classList.toggle("active");
@@ -115,12 +122,12 @@ dropdown_btn.addEventListener("click", (e) => {
 // let test_btn = document.querySelector("#btn_test");
 // test_btn.addEventListener("click", (e) => {
 //   e.preventDefault();
-//   chatroom2.change_room("tests");
+//   chatroom.change_room("tests");
 //   let li = document.querySelectorAll('li');
 //   li.forEach(li=>{
 //     li.remove();
 //   })
-//   chatroom2.getChats((d) => {
+//   chatroom.getChats((d) => {
 //     c.templateLI(d);
 //   });
 //   chatrooms.classList.toggle("active");
