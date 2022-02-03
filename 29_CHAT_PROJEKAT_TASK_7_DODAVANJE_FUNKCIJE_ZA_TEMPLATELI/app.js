@@ -1,10 +1,9 @@
 import { Chatroom } from "./chat.js";
 import { chatUI } from "./ui.js";
 
-
 //DOM
 let ul = document.querySelector(".msg-display");
-let notification = document.querySelector('#username');
+let notification = document.querySelector("#username");
 let upd_btn = document.querySelector("#btn_username");
 let dropdown_btn = document.querySelector("#dropdown_btn");
 let chatrooms = document.querySelector(".chatrooms");
@@ -14,6 +13,21 @@ let chevron_down = document.querySelector("#down");
 //OBJECTS
 let chatroom = new Chatroom("js", "Anonymus");
 let c = new chatUI(ul);
+
+//POSTAVLJANJE LOCAL STORAGE
+localStorage.setItem("x",7)
+localStorage.setItem("y",10)
+
+
+//PRISTUPANJE VREDNOSTI LOCAL STORAGE
+let z = localStorage.x + localStorage.y;
+console.log(z);
+console.log(localStorage.x);
+if(localStorage.x){
+  console.log(`x postoji`);
+}else{
+  console.log('x ne postoji');
+}
 
 //ISPIS IZ DB NA STRANICI
 chatroom.getChats((d) => {
@@ -45,22 +59,21 @@ upd_btn.addEventListener("click", (e) => {
   let user_input = document.querySelector("#update_input");
   let new_user = document.querySelector("#update_input").value;
   chatroom.update_user(new_user);
-  if(new_user.trim().length >= 2 && new_user.trim().length <=10){
-    let p = document.createElement('p');
+  if (chatroom.validate_user(new_user)) {
+    let p = document.createElement("p");
     p.innerHTML = new_user.trim();
     p.style.color = "#53b87b";
     notification.appendChild(p);
-    notification.classList.toggle('show');
+    notification.classList.toggle("show");
     setTimeout(() => {
-      notification.classList.toggle('show');
+      notification.classList.toggle("show");
       p.remove();
-    }, 3000); 
+    }, 3000);
   }
   user_input.value = "";
 });
 
 //DROPDOWN MENU
-
 
 dropdown_btn.addEventListener("click", (e) => {
   e.preventDefault();
@@ -69,11 +82,6 @@ dropdown_btn.addEventListener("click", (e) => {
   chevron_up.classList.toggle("show");
   dropdown_btn.classList.toggle("border");
 });
-
-
-
-
-
 
 //CHANGE ROOM
 
@@ -132,5 +140,3 @@ dropdown_btn.addEventListener("click", (e) => {
 //   });
 //   chatrooms.classList.toggle("active");
 // });
-
-

@@ -11,15 +11,12 @@ export class Chatroom {
     this._room = r;
   }
   set username(u) {
-    let u1 = u.trim();
-    if (u1.length >= 2 && u1.length <= 10) {
-      this._username = u1;
-      return true;
+    if (this.validate_user(u)) {
+      this._username = u;
     } else {
       alert(
         "Username must be between 2 and 10 characters long and cannot be made of spaces only"
       );
-      return false;
     }
   }
 
@@ -36,13 +33,21 @@ export class Chatroom {
 
   //USER UPDATE
   update_user(u) {
-    let u1 = u.trim();
-    if (u1.length >= 2 && u1.length <= 10) {
-      this._username = u1;
+    if (this.validate_user(u)) {
+      this._username = u;
     } else {
       alert(
         "Username must be between 2 and 10 characters long and cannot be made of spaces only"
       );
+    }
+  }
+
+  validate_user(u){
+    let u1 = u.trim();
+    if (u1.length >= 2 && u1.length <= 10) {
+      return true;
+    } else {
+      return false;
     }
   }
 
