@@ -106,6 +106,14 @@ header h3 {
   display: block !important;
 }
 
+/* .msg-display.sent{
+  border-radius: 10px 10px 0 10px;
+  background-color: #fff;
+  color: #1b1827;
+  float: right;
+  display: block !important;
+} */
+
 .msg-display::-webkit-scrollbar {
   display: none;
 }
@@ -280,6 +288,13 @@ header h3 {
   .messages {
     margin-top: 3px;
   }
+
+  #username{
+    border-radius: 25px 25px 0 25px;
+    bottom: 60px;
+    right: 80px;
+    border: #251b3c 2px solid;
+  }
 }
 
 /* TABLET */
@@ -372,6 +387,12 @@ header h3 {
   }
   .messages {
     margin-top: 3px;
+  }
+  #username{
+    border-radius: 25px 25px 0 25px;
+    bottom: 50px;
+    right: 95px;
+    border: #251b3c 2px solid;
   }
 }
 

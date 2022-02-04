@@ -51,4 +51,8 @@ export class chatUI {
       }
     }
   }
+  delete(){
+    this.ul.innerHTML = "";
+  }
+  
 }

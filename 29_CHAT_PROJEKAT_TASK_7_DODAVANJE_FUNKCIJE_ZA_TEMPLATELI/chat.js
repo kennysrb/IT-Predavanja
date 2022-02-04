@@ -3,6 +3,7 @@ export class Chatroom {
     this.room = r;
     this.username = u;
     this.chats = db.collection("chats");
+    this.unsub = false; //false je signal da je stranica 1. put ucitana
   }
 
   //SETERI
@@ -41,7 +42,7 @@ export class Chatroom {
       );
     }
   }
-
+//VALIDATOR ZA USLOV USERNAME-a
   validate_user(u){
     let u1 = u.trim();
     if (u1.length >= 2 && u1.length <= 10) {
@@ -56,6 +57,13 @@ export class Chatroom {
     this.room = r;
   }
 
+  //UPDATE ROOM
+  update_room(ur){
+    this.room = ur;
+    if(this.unsub != false){ //unsub vise nije false nego je u getchats postalo funkcija
+      this.unsub();
+    }
+  }
   //DODAVANJE NOVE PORUKE
   async addChat(msg) {
     let date = new Date();
@@ -75,7 +83,7 @@ export class Chatroom {
 
   //METOD KOJI PRATI PROMENE U BAZI I VRACA PORUKE
   getChats(callback) {
-    this.chats
+    this.unsub = this.chats
       .where("room", "==", this.room)
       .orderBy("created_at")
       .onSnapshot((snapshot) => {
