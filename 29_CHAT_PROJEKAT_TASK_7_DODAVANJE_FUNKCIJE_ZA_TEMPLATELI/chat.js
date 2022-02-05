@@ -81,6 +81,18 @@ export class Chatroom {
     return response; //vraca promise i mogu za njega da kazem .then i .catch
   }
 
+  //BRISANJE PORUKE
+  delete_msg(id){
+    this.chats
+    .doc(id)
+    .delete()
+    .then(()=>{
+      console.log(`Uspesno obrisana poruka.`)
+    })
+    .catch(err=>console.log(err))
+  }
+
+
   //METOD KOJI PRATI PROMENE U BAZI I VRACA PORUKE
   getChats(callback) {
     this.unsub = this.chats
@@ -93,10 +105,7 @@ export class Chatroom {
           let doc = change.doc;
           //ISPISATI DOKUMENTE KOJI SU DODATI U BAZU
           if (type == "added") {
-            let obj = doc.data();
-            if (obj.room === this.room) {
-              callback(obj); //prosledjivanje dokumenta na ispis koji se realizuje realizovanjem callback f-je
-            }
+              callback(doc); //prosledjivanje dokumenta na ispis koji se realizuje realizovanjem callback f-je
           }
         });
       });

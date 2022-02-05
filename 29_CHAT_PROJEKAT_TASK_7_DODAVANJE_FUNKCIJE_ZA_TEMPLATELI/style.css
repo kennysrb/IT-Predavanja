@@ -106,13 +106,17 @@ header h3 {
   display: block !important;
 }
 
-/* .msg-display.sent{
+.msg-display li:nth-child(odd) .trash, .msg-display li:nth-child(odd) span{
+  color: #1b1827;
+}
+
+.msg-display.sent{
   border-radius: 10px 10px 0 10px;
   background-color: #fff;
   color: #1b1827;
   float: right;
   display: block !important;
-} */
+}
 
 .msg-display::-webkit-scrollbar {
   display: none;
@@ -162,6 +166,8 @@ header h3 {
   color: white;
 }
 
+
+
 .p2 {
   right: 0;
   background-color: #fff;
@@ -193,6 +199,18 @@ header h3 {
   justify-content: center;
   align-items: center;
 }
+
+/* DODAT CSS ZA ZADATKE */
+
+#message{
+  width: 70%;
+  height: 27px;
+}
+
+#due_date, #start_date{
+  color: #392a5c;
+}
+
 
 /* MOBILE */
 

@@ -1,5 +1,5 @@
 import { Chatroom } from "./chat.js";
-import { chatUI } from "./ui.js";
+import { ChatUI } from "./ui.js";
 
 //DOM
 let ul = document.querySelector(".msg-display");
@@ -10,8 +10,9 @@ let chatrooms = document.querySelector(".chatrooms");
 let chevron_up = document.querySelector("#up");
 let chevron_down = document.querySelector("#down");
 let nav = document.querySelector('nav');
-let li = document.querySelectorAll('li');
-
+//dodato za zadatke
+let color_btn = document.querySelector('#btn_color');
+let btn_date = document.getElementById('btn_date');
 
 
 //PROVERA USERNAME-A U LOCALU
@@ -21,16 +22,17 @@ if(localStorage.username){
 }
 
 //OBJECTS
-let chatroom = new Chatroom("btn_general", username);
-let c = new chatUI(ul);
+let chat = new Chatroom("btn_general", username);
+let c = new ChatUI(ul);
 
 
 //ISPIS IZ DB NA STRANICI
-chatroom.getChats((d) => {
+chat.getChats((d) => {
   c.templateLI(d);
 });
 
-// if(chatroom.username == username){
+
+// if(chat.username == username){
 //   li.forEach(li=>{
 //     li.classList.toggle('sent')
 //   })
@@ -43,7 +45,7 @@ send_btn.addEventListener("click", (e) => {
   e.preventDefault();
   let msg_input = document.querySelector("#message");
   let new_msg = document.querySelector("#message").value;
-  chatroom
+  chat
     .addChat(new_msg)
     .then(() => {
       console.log("Poruka uspesno dodata.");
@@ -60,8 +62,8 @@ upd_btn.addEventListener("click", (e) => {
   e.preventDefault();
   let user_input = document.querySelector("#update_input");
   let new_user = document.querySelector("#update_input").value;
-  chatroom.update_user(new_user);
-  if (chatroom.validate_user(new_user)) {
+  chat.update_user(new_user);
+  if (chat.validate_user(new_user)) {
     localStorage.setItem("username", new_user);
     let p = document.createElement("p");
     p.innerHTML = new_user.trim();
@@ -91,8 +93,8 @@ dropdown_btn.addEventListener("click", (e) => {
 nav.addEventListener('click',(e)=>{
   if(e.target.tagName == 'BUTTON'){
     c.delete(); //brise poruke sa erkana
-    chatroom.update_room(e.target.id); //poziva promenu sobe
-    chatroom.getChats(d=>{ //prikazuje cetove
+    chat.update_room(e.target.id); //poziva promenu sobe
+    chat.getChats(d=>{ //prikazuje cetove
       c.templateLI(d);
     })
   chatrooms.classList.toggle("active");
@@ -100,3 +102,52 @@ nav.addEventListener('click',(e)=>{
   chevron_up.classList.toggle("show");
   }
 })
+
+
+//brisanje poruke
+ul.addEventListener('click',(e)=>{
+  e.preventDefault();
+  if(e.target.tagName === "I"){
+    if(localStorage.username === e.target.parentNode.firstChild.innerHTML){
+      confirm('Are you sure?')
+      chat.delete_msg(e.target.parentElement.id);
+      e.target.parentElement.remove();
+    }else{
+      e.target.parentElement.remove();
+    }
+  }
+})
+
+// JS ZA ZADATKE
+
+//menjanje boje
+color_btn.addEventListener('click',(e)=>{
+  e.preventDefault();
+  let color = document.querySelector('#update_color');
+  let new_color = document.querySelector('#update_color').value;
+  if(new_color != ""){
+    localStorage.setItem("last_color", new_color);
+    setTimeout(() => {
+      document.body.style.backgroundColor =new_color;
+    }, 500);
+  }else{
+    localStorage.setItem("last_color", "#FFFFFF");
+    setTimeout(() => {
+      document.body.style.backgroundColor ="#FFFFFF";
+    }, 500);
+  }
+});
+document.body.style.backgroundColor = localStorage.last_color;
+
+
+//date
+
+btn_date.addEventListener('click',(e)=>{
+  e.preventDefault();
+  let start_date = document.querySelector('#start_date');
+  let start_date_value = document.querySelector('#start_date').value;
+  let due_date = document.querySelector('#due_date');
+  let due_date_value = document.querySelector('#due_date').value;
+  
+})
+
