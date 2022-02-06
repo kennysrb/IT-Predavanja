@@ -29,34 +29,42 @@ export class ChatUI {
     return date_string;
   }
 
-
-  templateLI(doc) { 
+  templateLI(doc) {
     let id = doc.id;
     let data = doc.data();
     let date = data.created_at.toDate();
     let date_output = this.dateFormat(date);
     let today = new Date();
+    let htmlLi = document.createElement("li");
+    htmlLi.classList.remove("sent");
     if (data.message != "") {
       if (date.getDate() === today.getDate()) {
-        let HTMLli = `<li id="${id}"><span>${data.username}</span>: ${data.message}
-    <br>
-    ${String(date.getHours()).padStart(2, "0")}:${String(
+        htmlLi.setAttribute("id", id);
+        htmlLi.innerHTML = `<span>${data.username}</span>: ${data.message}
+        <br>
+        ${String(date.getHours()).padStart(2, "0")}:${String(
           date.getMinutes()
         ).padStart(2, "0")} <i class="fas fa-trash-alt trash"></i>
-    </li>`;
-        this.ul.innerHTML += HTMLli;
+          `;
+          if(data.username == localStorage.username){
+            htmlLi.classList.add("sent");
+          }
+        this.ul.appendChild(htmlLi);
       } else {
-        let HTMLli = `<li id="${id}"><span>${data.username}</span>: ${data.message}
-    <br>
+        htmlLi.setAttribute("id", id);
+        htmlLi.innerHTML = `<span>${data.username}</span>: ${data.message}
+          <br>
     ${date_output}
-    <i class="fas fa-trash-alt trash"></i>
-    </li>`;
-        this.ul.innerHTML += HTMLli;
+    <i class="fas fa-trash-alt trash"></i>`;
+    htmlLi.classList.remove('sent');
+          if(data.username == localStorage.username){
+            htmlLi.classList.add("sent");
+          }
+          this.ul.appendChild(htmlLi);
       }
     }
   }
-  delete(){
+  delete() {
     this.ul.innerHTML = "";
   }
-  
 }

@@ -1,7 +1,8 @@
 export class Chatroom {
-  constructor(r, u) {
+  constructor(r, u, c) {
     this.room = r;
     this.username = u;
+    this.created_at = c;
     this.chats = db.collection("chats");
     this.unsub = false; //false je signal da je stranica 1. put ucitana
   }
@@ -36,6 +37,8 @@ export class Chatroom {
   update_user(u) {
     if (this.validate_user(u)) {
       this._username = u;
+    localStorage.setItem("username", u);
+
     } else {
       alert(
         "Username must be between 2 and 10 characters long and cannot be made of spaces only"
@@ -64,6 +67,28 @@ export class Chatroom {
       this.unsub();
     }
   }
+
+  //FILTER
+  filterChats(callback, start,end){
+    this.unsub = this.chats
+      .where("room", "==", this.room)
+      .where("created_at", ">=", start)
+      .where("created_at", "<=", end)
+      .orderBy("created_at")
+      .onSnapshot((snapshot) => {
+        let changes = snapshot.docChanges();
+        changes.forEach((change) => {
+          let type = change.type;
+          let doc = change.doc;
+          //ISPISATI DOKUMENTE KOJI SU DODATI U BAZU
+          if (type == "added") {
+              callback(doc); //prosledjivanje dokumenta na ispis koji se realizuje realizovanjem callback f-je
+          }
+        });
+      });
+  }
+
+
   //DODAVANJE NOVE PORUKE
   async addChat(msg) {
     let date = new Date();
@@ -91,7 +116,6 @@ export class Chatroom {
     })
     .catch(err=>console.log(err))
   }
-
 
   //METOD KOJI PRATI PROMENE U BAZI I VRACA PORUKE
   getChats(callback) {

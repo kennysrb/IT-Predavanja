@@ -7,7 +7,7 @@
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  background-color: #11081a;
+  background-color: #000;
 }
 
 a {
@@ -23,33 +23,35 @@ ul {
   margin: auto;
 }
 
-.chat {
-  border: 2px solid #333;
-  border-radius: 8px;
-  background-color: #252331;
-  width: 40%;
-  margin: auto;
-  margin-top: 100px;
-  padding: 20px 0;
-  box-shadow: 5px 5px 40px #53b87b52;
-  height: 100%;
-}
+/* buttons */
 .btn {
   background-color: #333;
   color: #fff;
   font-weight: bold;
-  border-radius: 4px;
+  border-radius: 5px;
   border: none;
   padding: 5px 15px;
   margin: 5px;
   color: #53b87b;
 }
 
+.chat {
+  border: 2px solid #333;
+  border-radius: 45px;
+  background-color: #252331;
+  box-shadow: 5px 5px 40px #53b87b7c;
+  width: 50%;
+  margin: auto;
+  margin-top: 15px;
+  padding: 10px 0;
+}
+
 header {
   text-align: center;
 }
 header h1 {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
+  font-size: 2.5em;
 }
 
 #green {
@@ -60,6 +62,7 @@ header h3 {
   margin-bottom: 5px;
 }
 
+/* NAVBAR CHATROOMS */
 .dropdown {
   display: none;
 }
@@ -75,60 +78,88 @@ header h3 {
   color: #392a5c;
 }
 
+.room.active {
+  background-color: #fff;
+  color: #392a5c;
+}
+
+/* CHAT */
 .msg-display {
-  height: 300px;
+  height: 400px;
   background-color: #252331;
   background-image: url(./img/bck.jpg);
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  border-radius: 5px;
+  border-radius: 10px;
   overflow-x: hidden;
-  overflow-y: auto;
+  overflow-y: scroll;
+  position: relative;
+}
+.backdrop {
+  position: fixed;
+  height: 100vh;
+  width: 100%;
+  z-index: 100000;
+  backdrop-filter: blur(2px);
+}
+.pop_up {
+  height: 150px;
+  width: 300px;
+  background-color: #252331;
+  position: absolute;
+  bottom: 250px;
+  left: 50%;
+  z-index: 1000;
+  transform: translate(-50%, -50%);
+  border-radius: 10px;
+  text-align: center;
+  padding-top: 25px;
 }
 
+/* PORUKE */
 .msg-display li {
   margin: 10px;
   border-radius: 10px 10px 10px 0;
   padding: 4px 5px;
-  background-color: #53b87c;
+  background-color: #53b87bd0;
   color: white;
   width: 51%;
   float: left;
-  display: block !important;
 }
 
-.msg-display li:nth-child(odd) {
+.msg-display li i:hover {
+  cursor: pointer;
+}
+
+.msg-display li.sent {
   border-radius: 10px 10px 0 10px;
   background-color: #fff;
   color: #1b1827;
   float: right;
-  display: block !important;
 }
 
-.msg-display li:nth-child(odd) .trash, .msg-display li:nth-child(odd) span{
+.msg-display li.sent .trash,
+.msg-display li.sent span {
   color: #1b1827;
-}
-
-.msg-display.sent{
-  border-radius: 10px 10px 0 10px;
-  background-color: #fff;
-  color: #1b1827;
-  float: right;
-  display: block !important;
 }
 
 .msg-display::-webkit-scrollbar {
   display: none;
 }
+
+/* FORMS */
 .messages {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
+/*INPUTS */
+
+/* TEXT */
 .message_text {
-  width: 70%;
+  width: 84%;
   border: none;
   border-radius: 25px;
   padding: 5px;
@@ -136,6 +167,58 @@ header h3 {
   text-align: center;
 }
 
+#message {
+  width: 84%;
+  height: 27px;
+}
+
+/* COLOR */
+
+input[type="color"] {
+  -webkit-appearance: none;
+  border: none;
+  width: 27px;
+  height: 27px;
+}
+input[type="color"]::-webkit-color-swatch-wrapper {
+  padding: 0;
+  border-radius: 15px;
+}
+input[type="color"]::-webkit-color-swatch {
+  border: none;
+  border-radius: 15px;
+}
+
+#color_picker {
+  display: flex;
+  justify-content: space-between;
+}
+
+.color {
+  width: 84%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* DATE */
+
+#end_date,
+#start_date {
+  color: #392a5c;
+  border-radius: 5px;
+  width: 31%;
+  border: none;
+}
+
+.date_picker {
+  z-index: -1;
+  text-align: center;
+}
+.date_picker.show {
+  z-index: 1000;
+}
+
+/* BUTTONS */
 .send {
   text-align: center;
   width: 80px;
@@ -151,66 +234,38 @@ header h3 {
   cursor: pointer;
 }
 
-.poruke {
-  color: #251b3c;
-  background-color: white;
-  position: absolute;
-  margin: 10px;
-  border-radius: 5px;
-  padding: 4px 5px;
-}
+/* USERNAME NOTIFICATION */
 
-.p1 {
-  left: 0;
-  background-color: #53b87c;
-  color: white;
-}
-
-
-
-.p2 {
-  right: 0;
-  background-color: #fff;
-  color: #1b1827;
-}
-
-/* notifikacija za username */
-
-#username{
+#username {
   height: 60px;
   width: 200px;
-  border-radius: 25px 25px 25px 0;
-  background-color: #fff;
+  border-radius: 25px 25px 25px 25px;
+  background-color: rgba(255, 255, 255, 0.874);
+  border: #251b3c 2px solid;
   position: absolute;
-  bottom: 160px;
-  right: 285px;
-  display: none;
-  text-align: center;  
+  text-align: center;
   font-weight: bold;
-}
-
-#username p{
-  color: #251b3c;
-}
-
-#username.show{
+  text-align: center;
+  margin: auto;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  opacity: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-/* DODAT CSS ZA ZADATKE */
-
-#message{
-  width: 70%;
-  height: 27px;
+#username p {
+  color: #251b3c;
 }
 
-#due_date, #start_date{
-  color: #392a5c;
+#username.show {
+  opacity: 1;
+  transition: opacity 0.5s;
 }
-
 
 /* MOBILE */
 
@@ -218,7 +273,6 @@ header h3 {
   .chat {
     position: relative;
     width: 100%;
-    height: 100vh;
     border-radius: 0;
     padding: 0;
     padding-top: 20px;
@@ -282,9 +336,8 @@ header h3 {
   .room {
     border-bottom: 1px solid #fff;
   }
-  .room:hover{
+  .room:hover {
     transform: none;
-
   }
 
   .room:last-child {
@@ -306,13 +359,6 @@ header h3 {
   .messages {
     margin-top: 3px;
   }
-
-  #username{
-    border-radius: 25px 25px 0 25px;
-    bottom: 60px;
-    right: 80px;
-    border: #251b3c 2px solid;
-  }
 }
 
 /* TABLET */
@@ -320,7 +366,6 @@ header h3 {
 @media only screen and (min-width: 601px) and (max-width: 1210px) {
   .chat {
     width: 100%;
-    height: 100vh;
     border-radius: 0;
     padding-top: 20px;
     margin-top: 0;
@@ -405,12 +450,6 @@ header h3 {
   }
   .messages {
     margin-top: 3px;
-  }
-  #username{
-    border-radius: 25px 25px 0 25px;
-    bottom: 50px;
-    right: 95px;
-    border: #251b3c 2px solid;
   }
 }
 
