@@ -18,7 +18,8 @@ let chat_box = document.querySelector(".chat");
 let btn_select_user = document.querySelector("#btn_select_username");
 let sobe = document.querySelectorAll(".room");
 let send_btn = document.querySelector("#btn_message");
-
+let green = document.getElementById('green');
+let green_li = document.querySelectorAll('li');
 
 //USERNAME CHECK LOCAL STORAGE
 let username = "Anonymus";
@@ -34,10 +35,12 @@ let c = new ChatUI(ul);
 chat.getChats((d) => {
   c.templateLI(d);
 });
-
-//TIMEOUT FOR LAST MESSAGE
+let stb = (a) => {
+  a.scrollTop = a.scrollHeight;
+};
+// TIMEOUT FOR LAST MESSAGE
 setTimeout(()=>{
-  ul.lastElementChild.scrollIntoView();
+  stb(ul);
 },500);
 
 //SEND MESSAGE
@@ -49,7 +52,7 @@ send_btn.addEventListener("click", (e) => {
     .addChat(new_msg)
     .then(() => {
       console.log("Poruka uspesno dodata.");
-      ul.lastElementChild.scrollIntoView();
+      stb(ul);
       msg_input.value = "";
     })
     .catch((err) => {
@@ -113,7 +116,6 @@ upd_btn.addEventListener("click", (e) => {
   }
   user_input.value = "";
 });
-
 //DROPDOWN MENU
 dropdown_btn.addEventListener("click", (e) => {
   e.preventDefault();
@@ -139,6 +141,9 @@ nav.addEventListener("click", (e) => {
     chatrooms.classList.toggle("active");
     chevron_down.classList.toggle("hide");
     chevron_up.classList.toggle("show");
+    setTimeout(()=>{
+      stb(ul);
+    },500);
     sobe.forEach((r) => {
       console.log(r.id);
       if (localStorage.room == r.id) {
@@ -167,22 +172,31 @@ ul.addEventListener("click", (e) => {
 });
 
 //CHANGE COLOR
-color_btn.addEventListener("click", (e) => {
+color_btn.addEventListener("change", (e) => {
   e.preventDefault();
-  let new_color = document.querySelector("#update_color").value;
+  let new_color = color_btn.value;
   if (new_color != "") {
     localStorage.setItem("last_color", new_color);
     setTimeout(() => {
-      chat_box.style.backgroundColor = new_color;
+      green.style.color = new_color;
+      sobe.forEach(s=>{
+        s.style.color = new_color;
+      });
+      chat_box.style = `box-shadow: 5px 5px 40px ${new_color}`;
     }, 500);
   } else {
     localStorage.setItem("last_color", "#FFFFFF");
     setTimeout(() => {
-      chat_box.style.backgroundColor = "#FFFFFF";
+      green.style.color = "#FFFFFF";
+      sobe.forEach(s=>{
+        s.style.color = `#FFFFFF`;
+      });
+      chat_box.style = `box-shadow: 5px 5px 40px #FFFFFF`;
     }, 500);
   }
 });
-chat_box.style.backgroundColor = localStorage.last_color;
+
+chat_box.style = `box-shadow: 5px 5px 40px ${localStorage.last_color}`;
 
 //DATE
 btn_date.addEventListener("click", (e) => {
