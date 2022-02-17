@@ -95,7 +95,11 @@ header h3 {
   overflow-x: hidden;
   overflow-y: scroll;
   position: relative;
+  margin: 7px auto;
+  display: flex;
+  flex-direction: column;
 }
+
 .backdrop {
   position: fixed;
   height: 100vh;
@@ -118,14 +122,15 @@ header h3 {
 }
 
 /* PORUKE */
+
 .msg-display li {
-  margin: 10px;
-  border-radius: 10px 10px 10px 0;
+  display: table;
+  text-decoration: none;
+  margin: 5px;
   padding: 4px 5px;
+  margin-right: auto;
   background-color: #53b87bd0;
-  color: white;
-  width: 51%;
-  float: left;
+  border-radius: 10px 10px 10px 0;
 }
 
 .msg-display li i:hover {
@@ -133,15 +138,20 @@ header h3 {
 }
 
 .msg-display li.sent {
-  border-radius: 10px 10px 0 10px;
+  margin-left: auto;
+  margin-right: 5px;
   background-color: #fff;
+  border-radius: 10px 10px 0 10px;
   color: #1b1827;
-  float: right;
 }
 
 .msg-display li.sent .trash,
 .msg-display li.sent span {
   color: #1b1827;
+}
+
+.msg-display li i:hover {
+  cursor: pointer;
 }
 
 .msg-display::-webkit-scrollbar {
@@ -270,6 +280,10 @@ input[type="color"]::-webkit-color-swatch {
 /* MOBILE */
 
 @media only screen and (max-width: 600px) {
+
+  .pop_up{
+    padding-top: 37px;
+  }
   .chat {
     position: relative;
     width: 100%;
@@ -347,7 +361,7 @@ input[type="color"]::-webkit-color-swatch {
   }
 
   .msg-display {
-    height: 55vh;
+    height: 63vh;
     margin-bottom: 5px;
   }
 
@@ -365,6 +379,10 @@ input[type="color"]::-webkit-color-swatch {
 /* TABLET */
 
 @media only screen and (min-width: 601px) and (max-width: 1210px) {
+
+  .pop_up{
+    padding-top: 37px;
+  }
   .chat {
     width: 100%;
     border-radius: 0;
@@ -440,7 +458,7 @@ input[type="color"]::-webkit-color-swatch {
   }
 
   .msg-display {
-    height: 55vh;
+    height: 60vh;
     margin-bottom: 25px;
   }
 

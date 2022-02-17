@@ -19,7 +19,13 @@ let btn_select_user = document.querySelector("#btn_select_username");
 let sobe = document.querySelectorAll(".room");
 let send_btn = document.querySelector("#btn_message");
 let green = document.getElementById('green');
-let green_li = document.querySelectorAll('li');
+
+
+
+
+
+
+
 
 //USERNAME CHECK LOCAL STORAGE
 let username = "Anonymus";
@@ -196,24 +202,56 @@ color_btn.addEventListener("change", (e) => {
   }
 });
 
+
+sobe.forEach(s=>{
+  s.style.color = localStorage.last_color;
+});
 chat_box.style = `box-shadow: 5px 5px 40px ${localStorage.last_color}`;
+green.style.color = localStorage.last_color;
+
+
+let green_li = ul.getElementsByTagName("li");
+// let green_li = document.querySelectorAll('li');
+
+console.log(green_li);
+let niz = Array.from(green_li);
+console.log(niz);
+
+
+for(let i =0; i< green_li.length; i++){
+  green_li[i].style.backgroundColor = localStorage.last_color;
+  console.log(green_li[i]);
+}
+
+niz.forEach(n=>{
+  console.log(n);
+})
+
+window.onload = function(){
+  console.log(document.querySelectorAll('li'));
+}
+
+
+console.log(document.querySelectorAll('.sent'));
+
+
 
 //DATE
-btn_date.addEventListener("click", (e) => {
-  e.preventDefault();
-  c.delete();
-  let date = new Date(Date.parse(document.querySelector("#start_date").value));
-  let date2 = new Date(Date.parse(document.querySelector("#end_date").value));
-  chat.filterChats(
-    (d) => {
-      c.templateLI(d);
-    },
-    date,
-    date2
-  );
-});
+// btn_date.addEventListener("click", (e) => {
+//   e.preventDefault();
+//   c.delete();
+//   let date = new Date(Date.parse(document.querySelector("#start_date").value));
+//   let date2 = new Date(Date.parse(document.querySelector("#end_date").value));
+//   chat.filterChats(
+//     (d) => {
+//       c.templateLI(d);
+//     },
+//     date,
+//     date2
+//   );
+// });
 
-btn_show_date.addEventListener("click", (e) => {
-  e.preventDefault();
-  date_filter.classList.toggle("show");
-});
+// btn_show_date.addEventListener("click", (e) => {
+//   e.preventDefault();
+//   date_filter.classList.toggle("show");
+// });

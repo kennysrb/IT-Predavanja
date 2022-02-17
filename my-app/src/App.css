@@ -36,3 +36,15 @@
     transform: rotate(360deg);
   }
 }
+
+.moja-klasa{
+  color: blue;
+}
+
+.warning{
+  color: red;
+}
+
+.successful{
+  color: green;
+}
